@@ -1,0 +1,41 @@
+!!!5
+html
+  head
+    title Itinerated - Your itinerary rated by the crowd
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet', href='https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css')
+    link(rel='stylesheet', href='https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css')
+    link(rel='stylesheet', href='https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css')
+    script(src='https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fjquery.js')
+    script(src='https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js')
+    link(href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/beta.css')
+
+    block head
+
+  body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          button(type="button", class="btn btn-navbar", data-toggle="collapse", data-target=".nav-collapse")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a(class='brand', href='/') Itinerated
+          .nav-collapse.collapse
+            ul.nav
+              li.home
+                a(href='/') Home
+              li.protohome
+                a(href='/protohome') Prototype
+
+    <script type='text/javascript'>
+    |var url = document.URL.split('/'), page = url[url.length-1]; 
+    |switch(page){
+    |  case(''): $('li.home').addClass('active'); break;
+    |  case('protohome'): $('li.protohome').addClass('active'); break;
+    |}
+    </script>
+
+    block content

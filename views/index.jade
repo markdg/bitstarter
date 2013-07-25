@@ -1,0 +1,39 @@
+extend layout
+block content
+  .row-fluid.heading
+    .span12.start-nav
+      a(href='/login', title='Login') Login
+      a(href='/register', title='Register') Register
+  .row-fluid.pitch
+    .span5.offset1
+      p
+        | Vivamus hendrerit arcu sed erat molestie
+        | vehicula. Sed auctor neque eu tellus
+        | rhoncus ut eleifend nibh porttitor. Ut in.
+      p
+        | Donec congue lacinia dui, a porttitor
+        | lectus condimentum laoreet. Nunc eu
+        | ullamcorper orci. Quisque eget odio ac
+        | lectus vestibulum faucibus eget in metus.
+        | In pellentesque faucibus vestibulum. Nulla
+        | at nulla justo, eget luctus tortor.
+
+      a(href="#myModal", class="btn btn-primary btn-large", data-toggle="modal") Launch Demo Modal
+
+      div(id="myModal", class="modal hide fade", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true", style="display: none;")
+        .modal-header
+          button(type="button", class="close", data-dismiss="modal", aria-hidden="true") x
+          h3#myModalLabel Modal Header
+        .modal-body
+          p Modal body
+        .modal-footer
+          p Modal footer
+
+    .sidebar.span5
+      .widget
+        h1 Leader Board
+        p
+          | Top Itineraters
+        p
+          | Vivamus hendrerit arcu sed erat molestie
+          | vehicula.

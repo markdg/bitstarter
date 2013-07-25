@@ -1,0 +1,152 @@
+extend layout
+block content
+    .container
+      .row-fluid.heading
+        .span12
+          h1 Itinerated (prototype)
+      .row-fluid.subheading
+        .span12
+          p.lead Your itinerary rated by the crowd
+      .row-fluid.pitch
+        .span5.offset1.create-list-rate
+          a(href='#createModal', class='btn btn-primary btn-large', data-toggle='modal') Create
+          a(href='#listModal', class='btn btn-primary btn-large', data-toggle='modal') List
+          a(href='#rateModal', class='btn btn-primary btn-large', data-toggle='modal') Rate
+
+          div(id='createModal', class='modal hide fade', tabindex='-1', role='dialog', aria-labelledby='createModalLable', aria-hidden='true')
+            .modal-header
+              button(type='button', class='close', data-dismiss='modal', aria-hidden='true') x
+              h3#createModalLabel Create An Itinerary
+            .modal-body
+              .itin-name
+                p Itinerary name: California Dreamin'
+              #table
+                .row
+                  .cell
+                    p Day
+                  .cell
+                    p Location
+                  .cell
+                    p Sites
+                .row
+                  .cell
+                    p 1
+                  .cell
+                    p San Diego
+                  .cell
+                    p Zoo
+                .row
+                  .cell
+                    p 2
+                  .cell
+                    p San Diego
+                  .cell
+                    p Sea World
+                .row
+                  .cell
+                    p 3
+                  .cell
+                    p Anaheim
+                  .cell
+                    p Disneyland
+                .row
+                  .cell
+                    input(type='text', name='day', style='width:14px;')
+                  .cell
+                    input(type='text', name='location', style='width:120px;')
+                  .cell
+                    input(type='text', name='sites')
+              a(href='#newLine', class='btn btn-secondary btn-medium new-line') Add Another Day
+
+            .modal-footer
+              a(href='', class='btn btn-large', data-dismiss='modal', data-toggle='modal') Cancel
+              a(href='#saveModal', class='btn btn-large', data-dismiss='modal', data-toggle='modal') Save
+
+          div(id='listModal', class='modal hide fade', tabindex='-1', role='dialog', aria-labelledby='listModalLable', aria-hidden='true')
+            .modal-header
+              button(type='button', class='close', data-dismiss='modal', aria-hidden='true') x
+              h3#listModalLabel Your Saved Itineraries
+            .modal-body
+              p List form goes here
+            .modal-footer
+              p List footer goes here
+
+          div(id='rateModal', class='modal hide fade', tabindex='-1', role='dialog', aria-labelledby='rateModalLable', aria-hidden='true')
+            .modal-header
+              button(type='button', class='close', data-dismiss='modal', aria-hidden='true') x
+              h3#rateModalLabel Rate An Itinerary
+            .modal-body
+              p Rate form goes here
+            .modal-footer
+              p Rate footer goes here
+          p This is the home page you see after login.
+          p From here you can Create a new itinerary,
+          p List your saved itineraries, or 
+          p Rate other users' itineraries.
+          p Top itineraters join the leader board to the right.
+          p Click a button above to try it out.
+
+          div(id='saveModal', class='modal hide fade', tabindex='-1', role='dialog', aria-labelledby='saveModalLable', aria-hidden='true')
+            .modal-header
+              button(type='button', class='close', data-dismiss='modal', aria-hidden='true') x
+              h3#saveModalLabel Your Itinerary Has Been Saved
+            .modal-body
+              p California Dreamin' has been saved
+            .modal-footer
+              button(type='button', class='close', data-dismiss='modal', aria-hidden='true') OK
+
+        .span5.actions
+          .span8.offset2
+            .statistics
+              h3 Leader Board
+              #table
+                .row
+                  .cell
+                    p Itinerater
+                  .cell
+                    p Ratings
+                  .cell
+                    p Latest
+                .row
+                  .cell
+                    p Paul
+                  .cell
+                    p 22
+                  .cell
+                    p Paris
+                .row
+                  .cell
+                    p Sally
+                  .cell
+                    p 19
+                  .cell
+                    p Orlando
+                .row
+                  .cell
+                    p Raul
+                  .cell
+                    p 11
+                  .cell
+                    p Rio
+                .row
+                  .cell
+                    p Simon
+                  .cell
+                    p 6
+                  .cell
+                    p Rome
+                .row
+                  .cell
+                    p Mary
+                  .cell
+                    p 6
+                  .cell
+                    p Tokyo
+
+
+      .row-fluid.footer
+        .span12
+          p.
+            This work is licensed under the 
+            <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC By-SA 3.0</a>
+            without all the other cruft that would otherwise be put at the bottom of the page.

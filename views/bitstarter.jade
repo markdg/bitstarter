@@ -1,0 +1,116 @@
+extend layout
+block content
+    .container
+      .row-fluid.heading
+        .span12
+          h1 Itinerated
+      .row-fluid.subheading
+        .span12
+          p.lead Your itinerary rated by the crowd
+      .row-fluid.pitch
+        .span5.offset1.video
+          img.img-polaroid(src='http://placehold.it/480x300')
+        .span5.actions
+          .span8.offset2
+            .statistics
+              .span4
+                .linediv-l
+                  h3 1000
+                  p backers
+              .span4
+                .linediv-c
+                  h3 $6000
+                  p of $10,000
+              .span4
+                .linediv-r
+                  h3 10
+                  p days left
+          .span10.offset1
+            .thermometer.progress.active
+              .bar.bar-success(style='width: 60%;')
+              .bar.bar-warning(style='width: 40%;')
+          .span6.offset3.order
+            button.btn.btn-success.btn-large Preorder
+          .span8.offset2.social
+            button.btn.btn-twitter
+              i.icon-twitter 
+              | | Twitter
+            button.btn.btn-facebook
+              i.icon-facebook 
+              | | Facebook
+      .row-fluid.section1
+        .span5.offset1.asset
+          img.img-polaroid(src='http://i.imgur.com/BMYdocX.png')
+        .span5.copy
+          p.
+            Travel planning is too damn hard! You buy the travel books, read the forums, put together a sweet itinerary and 
+            you still aren't sure. So you go to the forums and post your itinerary and kindly ask for reviews...crickets. Or trolls. Or 
+            maybe a nice comment or suggestion, if you wait long enough. And which forum was that? There are so many. Wouldn't it be 
+            great if there was one place you could post your itinerary for review and expect timely and useful ratings from people who 
+            had actually been there? That's what we aim to do with <b>Itinerated</b>.
+      .row-fluid.section2
+        .span5.offset1.copy.copy-right
+          p.
+            <b>Itinerated</b> will be a fun web application that lets you create an itinerary and get it rated by 
+            the crowd. You also get to rate other people's itineraries, which is a great way to discover new itineraries and unlock 
+            more features for your account, like immediate alerts when your itinerary gets a new rating. It's free for the 
+            basic features plus there are a couple of paid premium levels that have some great features for power travelers.            
+          p.
+            You can help make this happen. Preorder a $25 basic paid plan and you get <b>Itinerated</b> for life 
+            (normally it's a one year subscription) or $50 for a lifetime subscription to the power traveler paid plan.
+        .span5.asset
+          img.img-polaroid(src='http://i.imgur.com/lTLskeD.png')
+
+      // For the FAQ we introduce a little bit of JS, using the accordion.
+      // This brings in jquery.js and bootstrap.js as dependencies.
+      // http://twitter.github.io/bootstrap/javascript.html#collapse
+      .row-fluid.faq
+        .span10.offset1
+          h3 FAQ
+          #accordion2.accordion
+            .accordion-group
+              .accordion-heading
+                a(class='accordion-toggle', data-toggle='collapse', data-parent='#accordion2', href='#collapseOne') What does Itinerated do?
+              #collapseOne.accordion-body.collapse
+                .accordion-inner
+                  p.
+                    Itinerated lets users enter their itinerary and submit it to be rated by other users as well as rate 
+                    others' itineraries.
+              .accordian-group
+                .accordion-heading
+                  a(class='accordion-toggle', data-toggle='collapse', data-parent='#accordion2', href='#collapseTwo') What product tiers does Itinerated have?
+                #collapseTwo.accordion-body.collapse
+                  .accordion-inner
+                    p.
+                      Tier 1 Free allows users to enter two itineraries for review, view ratings of their itineraries, 
+                      view all users' itineraries and ratings.
+                    p.
+                      Tier 2 Free allows users with a confirmed email address to receive once daily alerts of any new 
+                      ratings of their itineraries.
+                    p.
+                      Tier 3 Free allows users who have rated at least two other users' itineraries to do one-click copy of 
+                      others' itineraries to their own account.
+                    p.
+                      Tier 4 Paid allows user to receive immediate email alerts when a new rating is received.
+                    p.
+                      Tier 5 Paid.
+
+              .accordian-group
+                .accordion-heading
+                  a(class='accordion-toggle', data-toggle='collapse', data-parent='#accordion3', href='#collapseThree') Who created Itinerated?
+                #collapseThree.accordion-body.collapse
+                  .accordion-inner
+                    p.
+                      Itinerated was created by Mark George, a technologist who has worked in a variety of fields, including microcircuit 
+                      design, website development, and foreign language translation. He has traveled and lived abroad for 
+                      many years and has grown weary of struggles he and others experience when planning trips and seeking input on 
+                      itineraries.
+
+      // Not curcial, but we put this under a CC By-SA 3.0 license. 
+      // http://creativecommons.org/licenses/ 
+      .row-fluid.footer
+        .span12
+          p.
+            This work is licensed under the 
+            <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC By-SA 3.0</a>
+            without all the other cruft that would otherwise be put at the bottom of the page.
