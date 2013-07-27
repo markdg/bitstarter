@@ -27,5 +27,5 @@ app.get('/protohome', function(req, res){
     res.render('protohome', {title: 'Prototype Home'});
 })
 
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
 
