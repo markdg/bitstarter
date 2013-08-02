@@ -8,92 +8,96 @@ block content
         .span12
           p.lead Your itinerary rated by the crowd
       .row-fluid.pitch
-        .span5.offset1.create-list-rate
-          a(href='#createModal', class='btn btn-primary btn-large', data-toggle='modal') Create
-          a(href='#listModal', class='btn btn-primary btn-large', data-toggle='modal') List
-          a(href='#rateModal', class='btn btn-primary btn-large', data-toggle='modal') Rate
+        .span5.offset1.main-block
+          .ratings-alert
+            a(href='#listModal', class='btn btn-danger btn-small', data-toggle='modal') 2
+            | New ratings
+          .create-list-rate
+            a(href='#createModal', class='btn btn-primary btn-large', data-toggle='modal') Create
+            a(href='#listModal', class='btn btn-primary btn-large', data-toggle='modal') List
+            a(href='#rateModal', class='btn btn-primary btn-large', data-toggle='modal') Rate
 
-          div(id='createModal', class='modal hide fade', tabindex='-1', role='dialog', aria-labelledby='createModalLable', aria-hidden='true')
-            .modal-header
-              button(type='button', class='close', data-dismiss='modal', aria-hidden='true') x
-              h3#createModalLabel Create An Itinerary
-            .modal-body
-              .itin-name
-                p Itinerary name: California Dreamin'
-              #table
-                .row
-                  .cell
-                    p Day
-                  .cell
-                    p Location
-                  .cell
-                    p Sites
-                .row
-                  .cell
-                    p 1
-                  .cell
-                    p San Diego
-                  .cell
-                    p Zoo
-                .row
-                  .cell
-                    p 2
-                  .cell
-                    p San Diego
-                  .cell
-                    p Sea World
-                .row
-                  .cell
-                    p 3
-                  .cell
-                    p Anaheim
-                  .cell
-                    p Disneyland
-                .row
-                  .cell
-                    input(type='text', name='day', style='width:14px;')
-                  .cell
-                    input(type='text', name='location', style='width:120px;')
-                  .cell
-                    input(type='text', name='sites')
-              a(href='#newLine', class='btn btn-secondary btn-medium new-line') Add Another Day
+            div(id='createModal', class='modal hide fade', tabindex='-1', role='dialog', aria-labelledby='createModalLable', aria-hidden='true')
+              .modal-header
+                button(type='button', class='close', data-dismiss='modal', aria-hidden='true') x
+                h3#createModalLabel Create An Itinerary
+              .newitinerary
+                form(method='post')
+                  .modal-body
+                    .itin-name
+                      label(for='itinerary-name') Itinerary Name:
+                      input(type='text', name='name', id='itinerary-name')
+                    #table
+                      .row
+                        .cell
+                          p Day
+                        .cell
+                          p Location
+                        .cell
+                          p Sites
 
-            .modal-footer
-              a(href='', class='btn btn-large', data-dismiss='modal', data-toggle='modal') Cancel
-              a(href='#saveModal', class='btn btn-large', data-dismiss='modal', data-toggle='modal') Save
+                    span('id=addLine', class='btn btn-secondar btn-medium') Add A Line
+                    span('id=removeLine', class='btn btn-secondar btn-medium') Remove A Line
 
-          div(id='listModal', class='modal hide fade', tabindex='-1', role='dialog', aria-labelledby='listModalLable', aria-hidden='true')
-            .modal-header
-              button(type='button', class='close', data-dismiss='modal', aria-hidden='true') x
-              h3#listModalLabel Your Saved Itineraries
-            .modal-body
-              p List form goes here
-            .modal-footer
-              p List footer goes here
+                  .modal-footer
+                    a(href='', class='btn btn-large', data-dismiss='modal', data-toggle='modal') Cancel
+                    #editItinerarySubmit
+                      span('id=saveItinerary')
+                        input(type='submit', value='Save', class='btn btn-large')
+                    //a(href='#saveModal', class='btn btn-large', data-dismiss='modal', data-toggle='modal') Save
 
-          div(id='rateModal', class='modal hide fade', tabindex='-1', role='dialog', aria-labelledby='rateModalLable', aria-hidden='true')
-            .modal-header
-              button(type='button', class='close', data-dismiss='modal', aria-hidden='true') x
-              h3#rateModalLabel Rate An Itinerary
-            .modal-body
-              p Rate form goes here
-            .modal-footer
-              p Rate footer goes here
-          p This is the home page you see after login.
-          p From here you can Create a new itinerary,
-          p List your saved itineraries, or 
-          p Rate other users' itineraries.
-          p Top itineraters join the leader board to the right.
-          p Click a button above to try it out.
+            div(id='listModal', class='modal hide fade', tabindex='-1', role='dialog', aria-labelledby='listModalLable', aria-hidden='true')
+              .modal-header
+                button(type='button', class='close', data-dismiss='modal', aria-hidden='true') x
+                h3#listModalLabel Your Saved Itineraries
+              .modal-body
+                #itineraries
+                  #table
+                    .row.itinerary-header
+                      .cell.name Name
+                      .cell.location Location
+                      .cell.ratings Ratings
+                      .cell.edit Actions
+                      .cell.delete
+                    - each itinerary in itineraries
+                      .row.itinerary
+                        .cell.name= itinerary.name
+                        .cell.location= itinerary.location
+                        .cell.ratings
+                        .cell.edit
+                          form(method='get', action='/itinerary/:id/edit')
+                            input(name='_id', type='hidden', value=itinerary._id.toHexString())
+                            input(name='view', type='submit', value='View/Edit', class='btn btn-medium')
+                        .cell.delete
+                          form(method='post', action='/itinerary/:id/delete')
+                            input(name='_id', type='hidden', value=itinerary._id.toHexString())
+                            input(id='delete', value='Delete', type='submit', class='btn btn-medium')
+              .modal-footer
+                a(href='', class='btn btn-large', data-dismiss='modal', data-toggle='modal') Close
 
-          div(id='saveModal', class='modal hide fade', tabindex='-1', role='dialog', aria-labelledby='saveModalLable', aria-hidden='true')
-            .modal-header
-              button(type='button', class='close', data-dismiss='modal', aria-hidden='true') x
-              h3#saveModalLabel Your Itinerary Has Been Saved
-            .modal-body
-              p California Dreamin' has been saved
-            .modal-footer
-              button(type='button', class='close', data-dismiss='modal', aria-hidden='true') OK
+            div(id='rateModal', class='modal hide fade', tabindex='-1', role='dialog', aria-labelledby='rateModalLable', aria-hidden='true')
+              .modal-header
+                button(type='button', class='close', data-dismiss='modal', aria-hidden='true') x
+                h3#rateModalLabel Rate An Itinerary
+              .modal-body
+                p Rate form goes here
+              .modal-footer
+                p Rate footer goes here
+            p This is the home page you see after login.
+            p From here you can Create a new itinerary,
+            p List your saved itineraries, or 
+            p Rate other users' itineraries.
+            p Top itineraters join the leader board to the right.
+            p Click a button above to try it out.
+
+            div(id='saveModal', class='modal hide fade', tabindex='-1', role='dialog', aria-labelledby='saveModalLable', aria-hidden='true')
+              .modal-header
+                button(type='button', class='close', data-dismiss='modal', aria-hidden='true') x
+                h3#saveModalLabel Your Itinerary Has Been Saved
+              .modal-body
+                p California Dreamin has been saved
+              .modal-footer
+                button(type='button', class='close', data-dismiss='modal', aria-hidden='true') OK
 
         .span5.actions
           .span8.offset2
@@ -150,3 +154,48 @@ block content
             This work is licensed under the 
             <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC By-SA 3.0</a>
             without all the other cruft that would otherwise be put at the bottom of the page.
+
+    |<script type='text/javascript'>
+    |  //
+    |  //add lines to the Create Itinerary form
+    |  //$node is built up to with the line to be inserted
+    |  //create first line of inputs
+    |  var varCount = 1;
+    |  var $node = "";
+    |  $node = "<div class='row' id='row"+varCount+"'>";
+    |  $node += "<div class='cell'><input type='text' name='day"+varCount+"' id='editItineraryDay' style='width: 14px;'></div>";
+    |  $node += "<div class='cell'><input type='text' name='location"+varCount+"' id='editItineraryLocation'></div>";
+    |  $node += "<div class='cell'><input type='text' name='sites"+varCount+"' id='editItinerarySites'></div>";
+    |  $node += "</div>";
+    |  //add it to the DOM
+    |  $('.newitinerary #table').append($node);
+    |  //add another line to Create Itinerary form
+    |  $('#addLine').on('click', function(){
+    |    varCount++;
+    |    $node = "<div class='row' id='row"+varCount+"'>";
+    |    $node += "<div class='cell'><input type='text' name='day"+varCount+"' id='editItineraryDay' style='width: 14px;'></div>";
+    |    $node += "<div class='cell'><input type='text' name='location"+varCount+"' id='editItineraryLocation'></div>";
+    |    $node += "<div class='cell'><input type='text' name='sites"+varCount+"' id='editItinerarySites'></div>";
+    |    $node += "</div>";
+    |    $('.newitinerary #table').append($node);
+    |  });
+    |  //remove the last line of the Create Itinerary form
+    |  $('#removeLine').on('click', function(){
+    |    $('#row'+varCount).remove();
+    |    varCount--;
+    |  });
+    |  //on submit pushes all the input fields into arrays and stuffs arrays into form
+    |  //for posting to the main script which adds to db by calling the service class
+    |  $('#saveItinerary').on('click', function(){
+    |    var day = [], location = [], sites = [];
+    |    for(var i=1; i<=varCount; i++){
+    |      day.push($('input[name=day'+i+']').val());
+    |      location.push($('input[name=location'+i+']').val());
+    |      sites.push($('input[name=sites'+i+']').val());
+    |    }
+    |    var $location = '<input type="hidden", name="location", value="'+location+'">'
+    |    var $sites = '<input type="hidden", name="sites", value="'+sites+'">'
+    |    $('.newitinerary #table').append($location);
+    |    $('.newitinerary #table').append($sites);
+    |  });
+    |</script>

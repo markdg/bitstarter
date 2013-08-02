@@ -1,64 +1,64 @@
-      /* Large desktop */
-      @media (min-width: 980px) {
-        body {
-          padding-top: 60px;
-        }
-        .linediv-l {
-          border-right: 1px white solid;
-        }
-        .linediv-r {
-          border-left: 1px white solid;
-        }
-      }
+/* Large desktop */
+@media (min-width: 980px) {
+  body {
+    padding-top: 60px;
+  }
+  .linediv-l {
+    border-right: 1px white solid;
+  }
+  .linediv-r {
+    border-left: 1px white solid;
+  }
+}
 
-      /* Landscape phones and down */
-      @media (max-width: 640px) {
-        .copy {
-          padding: 2.5% 10%;
-        }
-        .linediv-l {
-          border-bottom: 1px white solid;
-        }
-        .linediv-r {
-          border-top: 1px white solid;
-        }
-      }
+/* Landscape phones and down */
+@media (max-width: 640px) {
+  .copy {
+    padding: 2.5% 10%;
+  }
+  .linediv-l {
+    border-bottom: 1px white solid;
+  }
+  .linediv-r {
+    border-top: 1px white solid;
+  }
+}
 
-      /* All form factors */
+/* All form factors */
 
-      /* Main body and headings */
-      body {
-        font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-      }
-      .heading, .subheading {
-        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-        text-align: center;
-      }
-      p.lead {
-        padding-top: 1.5%;
-        font-size: 24px;
-        line-height: 30px;
-      }
-      p {
-        font-size: 18px;
-        line-height: 24px;
-      }
+/* Main body and headings */
+body {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+.heading, .subheading {
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+p.lead {
+  padding-top: 1.5%;
+  font-size: 24px;
+  line-height: 30px;
+}
+p {
+  font-size: 18px;
+  line-height: 24px;
+}
 
-      /* Video pitch and Action */
-      .pitch {
-        padding: 2.5% 0%;
-      }
-      .order {
-        padding: 2% 0%;
-      }
-      .actions {
-        background-color: #343434;
-        border-radius: 8px;
-        padding: 3% 0%;
-      }
-      .video, .thermometer, .order, .social, .statistics, .create-list-rate {
-        text-align: center;
-      }
+/* Video pitch and Action */
+.pitch {
+  padding: 2.5% 0%;
+}
+.order {
+  padding: 2% 0%;
+}
+.actions {
+  background-color: #343434;
+  border-radius: 8px;
+  padding: 3% 0%;
+}
+.video, .thermometer, .order, .social, .statistics, .create-list-rate {
+  text-align: center;
+}
 .statistics h3, .statistics p {
   color: white;
   font-weight: normal; 
@@ -67,38 +67,47 @@
  margin-top: 0px;
 }
 
-      /* Marketing Copy and Footer */
-      .copy {
-        padding-top: 2.5%;
-        padding-bottom: 2.5%;
-        text-align: justify;
-      }
-      .asset {
-        padding: 2.5% 0%;
-      }
-      .accordion p {
-        font-size: 14px;
-      }
-      .footer {
-        color: #cccccc;
-        text-align: center;
-      }
-      .footer p {
-        font-size: 11px;
-      }
-      .footer a {
-        color: #ccccff;
-      }
-.create-list-rate {
+/* Marketing Copy and Footer */
+.copy {
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  text-align: justify;
+}
+.asset {
+  padding: 2.5% 0%;
+}
+.accordion p {
+  font-size: 14px;
+}
+.footer {
+  color: #cccccc;
+  text-align: center;
+}
+.footer p {
+  font-size: 11px;
+}
+.footer a {
+  color: #ccccff;
+}
+.main-block {
   border: medium solid;
   border-radius: 8px;
-  padding: 2%;
+  padding: 1%;
 }
 .create-list-rate a {
   margin-left: 10px;
 }
 .create-list-rate p {
-
+}
+.ratings-alert {
+  text-align: center;
+  padding: 2px;
+  margin-left: 30%;
+}
+.ratings-alert p {
+}
+.btn-small {
+  padding: 0px 4px;
 }
 .actions {
   background-color: #686868;
@@ -119,9 +128,38 @@
 .cell p {
   margin: 2% 4%;
 }
+.cell.name {
+  width: 100px;
+  overflow: hidden;
+}
+.cell.location {
+  width: 150px;
+}
+.cell.ratings, .cell.edit, .cell.delete {
+  width: 90px;
+}
 .modal {
   position: absolute;
 }
-.modal-body .itin-name p {
+.itin-name label, .itin-name input {
+  float: left;
+  margin-left: 5px;
+  padding-top: 2px;
+  font-size: 16px;
+}
+.modal-body p {
   text-align: left;
+  font-size: 14px;
+  margin-top: 2%;
+}
+.modal-footer .btn {
+  float: right;
+  margin-left: 2%;
+}
+.newitinerary span {
+ margin-left: 2%;
+}
+.newitinerary .label {
+  background-color:#fff;
+  color: #000;
 }

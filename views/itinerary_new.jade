@@ -1,0 +1,15 @@
+extends layout
+block content
+  h1= title
+  div.newitinerary
+    form(method="post")
+      div
+        div
+          span.label Title :
+          input(type="text", name="title", id="editItineraryTitle")
+        div
+          span.label Name :
+          input(type="text", name="name", id="editItineraryName")
+        div#editItinerarySubmit
+          input(type="submit", value="Save")
+    a(href="/protolist")!= "Back to Itinerary List"
