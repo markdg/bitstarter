@@ -6,7 +6,7 @@ var express = require('express'),
     nib = require('nib');
     path = require('path'),
     http = require('http'),
-    ItineraryProvider = require('./ItineraryProvider').ItineraryProvider;
+    ItineraryProvider = require('./itineraryprovider').ItineraryProvider;
 
 var app = express();
 
@@ -24,7 +24,8 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 
 
-var itineraryProvider = new ItineraryProvider('localhost', 27017);
+var itineraryProvider = new ItineraryProvider(process.env.MONGOHQ_URL, 27017);
+//var itineraryProvider = new ItineraryProvider('localhost', 27017);
 
 //render the bitstarter page
 app.get('/', function(req, res){
