@@ -9,7 +9,7 @@ block content
           p.lead Your itinerary rated by the crowd
       .row-fluid.pitch
         .span5.offset1.video
-          img.img-polaroid(src='http://placehold.it/480x300', alt='Placeholder for video')
+          img.img-polaroid(src='http://placehold.it/480x300')
         .span5.actions
           .span8.offset2
             .statistics
@@ -32,15 +32,16 @@ block content
           .span6.offset3.order
             button.btn.btn-success.btn-large Preorder
           .span8.offset2.social
-            button.btn.btn-twitter
-              i.icon-twitter 
-              | | Twitter
-            button.btn.btn-facebook
-              i.icon-facebook 
-              | | Facebook
+            .addthis_toolbox.addthis_default_style.addthis_32x32_style
+              a(class='addthis_button_preferred_1')
+              a(class='addthis_button_preferred_2')
+              a(class='addthis_button_compact')
+              a(class='addthis_counter addthis_bubble_style')
+            |<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+            |<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51fb3d166670901c"></script>
       .row-fluid.section1
         .span5.offset1.asset
-          img.img-polaroid(src='http://i.imgur.com/BMYdocX.png', alt='Wireframe of app main page')
+          img.img-polaroid(src='http://i.imgur.com/BMYdocX.png')
         .span5.copy
           p.
             Travel planning is too damn hard! You buy the travel books, read the forums, put together a sweet itinerary and 
@@ -59,7 +60,7 @@ block content
             You can help make this happen. Preorder a $25 basic paid plan and you get <b>Itinerated</b> for life 
             (normally it's a one year subscription) or $50 for a lifetime subscription to the power traveler paid plan.
         .span5.asset
-          img.img-polaroid(src='http://i.imgur.com/lTLskeD.png', alt='Wireframe of app Rate page')
+          img.img-polaroid(src='http://i.imgur.com/lTLskeD.png')
 
       // For the FAQ we introduce a little bit of JS, using the accordion.
       // This brings in jquery.js and bootstrap.js as dependencies.

@@ -163,3 +163,7 @@ p {
   background-color:#fff;
   color: #000;
 }
+.addthis_toolbox {
+  width: 180px;
+  margin: 0 auto;
+}
