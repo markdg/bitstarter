@@ -23,9 +23,11 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 
-alert(process.env.MONGOHQ_URL);
-var MONGOHQ_URL = 'mongodb://markdg:testpwd1@dharma.mongohq.com:10091/app17007481'
-alert(process.env.MONGOHQ_URL);
+//=== markdg-bitstarter-s-mooc Config Vars from heroku cli inquiry
+//MONGOHQ_URL: mongodb://heroku:366acce9fd196a673584b13acb417573@dharma.mongohq.com:10091/app17007481
+//PATH:        bin:node_modules/.bin:/usr/local/bin:/usr/bin:/bin
+
+var MONGOHQ_URL = 'mongodb://heroku:366acce9fd196a673584b13acb417573@dharma.mongohq.com:10091/app17007481'
 
 var itineraryProvider = new ItineraryProvider(MONGOHQ_URL, 27017);
 //var itineraryProvider = new ItineraryProvider(process.env.MONGOHQ_URL, 27017);
