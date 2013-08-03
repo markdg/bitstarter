@@ -6,7 +6,7 @@ var express = require('express'),
     nib = require('nib');
     path = require('path'),
     http = require('http'),
-    ItineraryProvider = require('./itineraryprovider').ItineraryProvider;
+    ItineraryProvider = require('./ItineraryProvider').ItineraryProvider;
 
 var app = express();
 
