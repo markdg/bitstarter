@@ -23,8 +23,9 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 
-
+console.log(process.env.MONGOHQ_URL);
 var MONGOHQ_URL = 'mongodb://markdg:testpwd1@dharma.mongohq.com:10091/app17007481'
+console.log(process.env.MONGOHQ_URL);
 
 var itineraryProvider = new ItineraryProvider(MONGOHQ_URL, 27017);
 //var itineraryProvider = new ItineraryProvider(process.env.MONGOHQ_URL, 27017);
