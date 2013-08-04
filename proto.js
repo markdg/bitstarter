@@ -23,7 +23,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 
-
+//this needs to be changed to run on heroku
 var itineraryProvider = new ItineraryProvider('localhost', 27017);
 
 //render the bitstarter page
