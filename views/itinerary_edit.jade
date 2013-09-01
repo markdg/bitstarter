@@ -10,19 +10,70 @@ block content
     .row-fluid.pitch
       .span5.offset4.main-block
         h3 Edit Itinerary
+        p= itinerary.name
         div.newitinerary
           form(method="post")
             input(name="_id", type="hidden", value=itinerary._id.toHexString())
-            div
-              div
-                span.label Name :
-                input(type="text", name="name", id="editItineraryName", value=itinerary.name)
-              div
-                span.label Location :
-                input(type="text", name="location", id="editItineraryLocation", value=itinerary.location)
-              div
-                span.label Sites :
-                input(type="text", name="sites", id="editItinerarySites", value=itinerary.sites)
-              div#editItinerarySubmit
-                input(type="submit", value="Update")
+            #itineraries
+              #table
+                input(type="hidden", name="name", value=itinerary.name)
+                - i_days = JSON.stringify(itinerary.days)
+                input(type="hidden", name="itinerary-days", value=i_days)
+                input(type="hidden", name="itinerary-days-length", value=itinerary.days.length)
+                .row.itinerary-header
+                  .cell.day Day
+                  .cell.location Location
+                  .cell.sites Sites
+                - for (ii=0; ii<itinerary.days.length; ii++)
+                  div(id="row#{ii+1}").row.itinerary
+                    .cell.day= ii+1
+                    .cell.location
+                      input(type="text", name="location"+ii, id="editItineraryLocation"+ii, value=itinerary.days[ii].location, style="width:150px;")
+                    .cell.location
+                      input(type="text", name="sites"+ii, id="editItinerarySites"+ii, value=itinerary.days[ii].sites)
+              span('id=addLine', class='btn btn-secondar btn-medium') Add A Day
+              span('id=removeLine', class='btn btn-secondar btn-medium') Remove A Day
+            span('id=saveItinerary')
+              input(type='submit', value='Update', class='btn btn-large')
           a(href="/protohome")!= "Back Home"
+    |<script type="text/javascript">
+    |  varCount = $('input[name=itinerary-days-length]').val();
+    |  //add another line to Edit Itinerary form
+    |  $('#addLine').on('click', function(){
+    |    varCount++;
+    |    vm1 = varCount - 1;
+    |    $node = "<div class='row itinerary' id='row"+varCount+"'>";
+    |    $node += "<div class='cell'>"+varCount+"</div>";
+    |    //$node += "<div class='cell'><input type='text' name='day"+varCount+"' id='editItineraryDay' style='width: 14px;'></div>";
+    |    $node += "<div class='cell location'><input type='text' name='location"+vm1+"' id='editItineraryLocation' style='width: 150px;'></div>";
+    |    $node += "<div class='cell location'><input type='text' name='sites"+vm1+"' id='editItinerarySites'></div>";
+    |    $node += "</div>";
+    |    $('.newitinerary #table').append($node);
+    |  });
+    |  //remove the last line of the Create Itinerary form
+    |  $('#removeLine').on('click', function(){
+    |    $('#row'+varCount).remove();
+    |    varCount--;
+    |  });
+    |  //on submit pushes all the input fields into the itinerary object stuffs it into form
+    |  //for posting to the main script which adds to db by calling the service class
+    |  $('#saveItinerary').on('click', function(){
+    |    var it_obj = {}, days = [];
+    |    for(var i=0; i<varCount; i++){
+    |      var day_obj = {};
+    |      day_obj.day = i+1;
+    |      day_obj.location = $('input[name=location'+i+']').val();
+    |      day_obj.sites = $('input[name=sites'+i+']').val();
+    |      days.push(day_obj);
+    |      alert(JSON.stringify(days));
+    |    }
+    |    it_obj.user = 'user1';
+    |    it_obj.name = $('input[name=name]').val();
+    |    it_obj.days = days;
+    |    iostr = JSON.stringify(it_obj);
+    |    alert(iostr);
+    |    $io = "<input type='hidden' name='it_obj' value='"+iostr+"'>";
+    |    $('.newitinerary #table').append($io);
+    |  });
+    |</script>
+
