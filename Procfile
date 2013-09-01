@@ -1,1 +1,1 @@
-web: node proto.js
+web: node protonew.js
